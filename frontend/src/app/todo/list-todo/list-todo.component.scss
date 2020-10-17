@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-todos {
+    width: 80%;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: row;
+}
+
+.card-todos:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.card-content button {
+    margin-left: auto;
+    align-self: flex-start;
+}

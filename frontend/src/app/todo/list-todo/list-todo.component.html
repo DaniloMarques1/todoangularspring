@@ -1,0 +1,16 @@
+<div class="container">
+    <h2>Todos ja adicionados</h2>
+    <a mat-stroked-button [routerLink]="['/createTodo']" >Adicionar todo</a>
+    <mat-card *ngFor="let todo of todos" class="card-todos">
+        <mat-card-header>
+           <mat-card-title>{{todo.title}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="card-content">
+            <p>
+                {{todo.desc}}
+            </p>
+            <button (click)="delete(todo.id)" mat-raised-button color="warn">X</button>
+        </mat-card-content>
+        
+    </mat-card>
+</div>

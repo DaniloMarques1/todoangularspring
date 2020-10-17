@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="form-group">
+        <mat-form-field>
+            <mat-label>Titulo</mat-label>
+            <input [(ngModel)]="todo.title" matInput type="text" placeholder="Work to be done">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Descricao</mat-label>
+            <input [(ngModel)]="todo.desc" matInput type="text" placeholder="A detailed description">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addTodo()">Adicionar</button>
+        <button [routerLink]="['/listTodo']" mat-raised-button color="secondary">Listar todos</button>
+    </div>
+</div>
