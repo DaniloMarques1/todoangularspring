@@ -13,7 +13,8 @@ data class Todo(
         val id: Long = 0,
         @Column(length = 100)
         val title: String,
-        val description: String,
+        @Column(name = "description")
+        val desc: String,
         @Column(name = "created_at")
         val createdAt: LocalDateTime
 )

@@ -9,6 +9,7 @@ import java.time.LocalDateTime
 
 @RestController
 @RequestMapping("/todo")
+@CrossOrigin
 class TodoController(private val todoRepository: TodoRepository) {
 
     @PostMapping
@@ -16,7 +17,7 @@ class TodoController(private val todoRepository: TodoRepository) {
     fun addTodo(@RequestBody todoRequestDTO: CreateTodoRequestDTO): Todo {
         val todo = todoRepository.save(Todo(
                 title = todoRequestDTO.title,
-                description = todoRequestDTO.desc,
+                desc = todoRequestDTO.desc,
                 createdAt = LocalDateTime.now()
         ))
 
@@ -36,7 +37,8 @@ class TodoController(private val todoRepository: TodoRepository) {
     }
 
     @DeleteMapping("/{id}")
-    fun deletetodo(@PathVariable("id") id: Long): Todo {
+    fun deletetodo(@PathVariable("id") id: Long): Todo? {
+        //TODO: handle when there is no todo with passed id
         val todo = todoRepository.findById(id).get()
         todoRepository.delete(todo)
 
